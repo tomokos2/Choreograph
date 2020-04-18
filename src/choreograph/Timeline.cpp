@@ -34,28 +34,28 @@ namespace
 {
 
 // A single-item timeline for wrapping shared TimelineItems.
-class PassthroughTimelineItem : public TimelineItem
-{
-public:
-  explicit PassthroughTimelineItem( const TimelineItemRef &item )
-  : _item( item )
-  {}
+  class PassthroughTimelineItem : public TimelineItem
+  {
+  public:
+    explicit PassthroughTimelineItem( const TimelineItemRef &item )
+        : _item( item )
+    {}
 
-  void update() override { _item->step( deltaTime() ); }
-  Time getDuration() const override { return _item->getDuration(); }
-  const void* getTarget() const override { return _item->getTarget(); }
-private:
-  TimelineItemRef _item;
-};
+    void update() override { _item->step( deltaTime() ); }
+    Time getDuration() const override { return _item->getDuration(); }
+    const void* getTarget() const override { return _item->getTarget(); }
+  private:
+    TimelineItemRef _item;
+  };
 
 } // namespace
 
 Timeline::Timeline( Timeline &&rhs )
-: _default_remove_on_finish( std::move( rhs._default_remove_on_finish ) ),
-_items( std::move( rhs._items ) ),
-_queue( std::move( rhs._queue ) ),
-_updating( std::move( rhs._updating ) ),
-_finish_fn( std::move( rhs._finish_fn ) )
+    : _default_remove_on_finish( std::move( rhs._default_remove_on_finish ) ),
+      _items( std::move( rhs._items ) ),
+      _queue( std::move( rhs._queue ) ),
+      _updating( std::move( rhs._updating ) ),
+      _finish_fn( std::move( rhs._finish_fn ) )
 {}
 
 void Timeline::removeFinishedAndInvalidMotions()
