@@ -1,9 +1,9 @@
 if(NOT TARGET Choreograph)
     # Define ${Choreograph_PROJECT_ROOT}. ${CMAKE_CURRENT_LIST_DIR} is just the current directory.
-    get_filename_component(Choreograph_PROJECT_ROOT "${CMAKE_CURRENT_LIST_DIR}/../.." ABSOLUTE)
+    get_filename_component(Choreograph_PROJECT_ROOT "C:/Users/tomok/Downloads/cinder_0.9.2_vc2015/cinder_0.9.2_vc2015/blocks/Choreograph/proj/cmake/../.." ABSOLUTE)
 
     # Define ${CINDER_PATH} as usual.
-    get_filename_component(CINDER_PATH "${Choreograph_PROJECT_ROOT}/../.." ABSOLUTE)
+    get_filename_component(CINDER_PATH "C:/Users/tomok/Downloads/cinder_0.9.2_vc2015/cinder_0.9.2_vc2015/blocks/Choreograph/../.." ABSOLUTE)
 
     # Make a list of source files and define that to be ${SOURCE_LIST}.
     file(GLOB SOURCE_LIST CONFIGURE_DEPENDS
